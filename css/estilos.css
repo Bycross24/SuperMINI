@@ -1,0 +1,1365 @@
+/* ==========================================
+   SUPERMINI - ESTILOS GENERALES
+   Evaluación 3 - Interfaces de Usuario
+   ========================================== */
+
+/* COLORES CORPORATIVOS */
+
+:root {
+    --azul-principal: #3f4e5f;
+    --azul-hover: #526477;
+    --texto-secundario: #68798a;
+    --amarillo: #ffd43b;
+    --amarillo-hover: #f5c518;
+    --blanco: #ffffff;
+    --fondo: #fafafa;
+    --borde: #e2e6ea;
+    --rojo-error: #d92d20;
+    --verde-ok: #15803d;
+}
+
+/* ESTILOS GENERALES */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background-color: var(--fondo);
+    color: var(--azul-principal);
+}
+
+[hidden] {
+    display: none !important;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--amarillo);
+    outline-offset: 3px;
+}
+
+/* ==========================================
+   HEAD - ENCABEZADO
+   RIU 1
+   ========================================== */
+
+.encabezado {
+    min-height: 160px;
+    padding: 28px 6% 12px;
+    background-color: var(--azul-principal);
+    color: var(--blanco);
+}
+
+.cabecera-superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.encabezado h1 {
+    margin: 0 0 20px;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--blanco);
+}
+
+/* INFORMACIÓN DE SESIÓN */
+
+#datosSesion {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#nombreSesion {
+    color: var(--blanco);
+    font-size: 16px;
+}
+
+/* MENÚ DE NAVEGACIÓN */
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.menu a {
+    padding: 12px 16px;
+    color: var(--blanco);
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+.menu a:hover {
+    background-color: var(--azul-hover);
+}
+
+.menu a.activo {
+    background-color: var(--amarillo);
+    color: var(--azul-principal);
+}
+
+/* BOTÓN CERRAR SESIÓN */
+
+.btn-salir {
+    min-height: 49px;
+    padding: 10px 18px;
+    border: 1px solid var(--blanco);
+    border-radius: 5px;
+    background-color: transparent;
+    color: var(--blanco);
+    cursor: pointer;
+}
+
+.btn-salir:hover {
+    background-color: var(--azul-hover);
+}
+
+/* ==========================================
+   BODY - CONTENIDO
+   RIU 1
+   ========================================== */
+
+.contenido {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 6%;
+}
+
+/* ==========================================
+   LOGIN
+   RIU 2 Y 3
+   ========================================== */
+
+.login {
+    width: 100%;
+    max-width: 480px;
+    min-height: 395px;
+    padding: 40px;
+    border: 1px solid #ffd43b;
+    border-radius: 18px;
+    background-color: var(--blanco);
+}
+
+.login h2 {
+    margin: 0 0 32px;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--azul-principal);
+}
+
+/* CAMPOS DEL FORMULARIO */
+
+.campo {
+    margin-bottom: 24px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: var(--azul-principal);
+}
+
+.campo input,
+.campo select {
+    display: block;
+    width: 100%;
+    height: 48px;
+    padding: 12px 15px;
+    border: 1px solid #b8bdc3;
+    border-radius: 8px;
+    background-color: var(--blanco);
+    color: var(--azul-principal);
+    font-size: 16px;
+}
+
+.campo input:focus,
+.campo select:focus {
+    outline: 2px solid var(--amarillo);
+    outline-offset: 1px;
+}
+
+.campo input:disabled,
+.campo select:disabled {
+    background-color: #eef1f4;
+    color: var(--texto-secundario);
+    cursor: not-allowed;
+}
+
+/* VALIDACIÓN DE CAMPOS */
+
+.campo input.input-error {
+    border: 2px solid var(--rojo-error);
+}
+
+.campo input:-webkit-autofill,
+.campo input:-webkit-autofill:hover,
+.campo input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px #fafafa inset;
+    -webkit-text-fill-color: #3f4e5f;
+    caret-color: #3f4e5f;
+}
+
+.mensaje-error {
+    margin: 8px 0 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: var(--rojo-error);
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* ==========================================
+   BOTONES PRINCIPALES Y SECUNDARIOS
+   ========================================== */
+
+.btn-principal {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    background-color: var(--amarillo);
+    color: var(--azul-principal);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-principal:hover {
+    background-color: var(--amarillo-hover);
+}
+
+.btn-principal:disabled {
+    background-color: #d1d5db;
+    color: #68798a;
+    cursor: not-allowed;
+}
+
+.btn-accion {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 135px;
+    min-height: 44px;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+}
+
+.btn-amarillo {
+    background-color: var(--amarillo);
+    color: var(--azul-principal);
+}
+
+.btn-amarillo:hover:not(:disabled) {
+    background-color: var(--amarillo-hover);
+}
+
+.btn-amarillo:disabled {
+    background-color: #d1d5db;
+    color: #68798a;
+    cursor: not-allowed;
+}
+
+.btn-rojo {
+    background-color: var(--rojo-error);
+    color: var(--blanco);
+}
+
+.btn-rojo:hover:not(:disabled) {
+    background-color: #b42318;
+}
+
+.btn-gris {
+    background-color: #e5e7eb;
+    color: var(--azul-principal);
+}
+
+.btn-gris:hover:not(:disabled) {
+    background-color: #d1d5db;
+}
+
+/* ==========================================
+   DASHBOARDS ADMIN Y USER
+   RIU 8, 9 Y 10
+   ========================================== */
+
+.sistema {
+    width: 100%;
+    max-width: 1680px;
+    align-self: stretch;
+    padding: 36px 0 40px;
+}
+
+.sistema h2 {
+    margin: 0 0 24px;
+    font-size: 28px;
+    color: var(--azul-principal);
+}
+
+.bienvenida {
+    margin: 0 0 64px;
+    font-size: 32px !important;
+    font-weight: 700;
+    color: var(--azul-principal);
+}
+
+.subtitulo-seccion {
+    margin: 0 0 16px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--azul-principal);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.asterisco {
+    color: var(--rojo-error);
+}
+
+/* CONTENEDOR DE TARJETAS */
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px;
+}
+
+.tarjeta {
+    min-height: 360px;
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+}
+
+.tarjeta h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--azul-principal);
+}
+
+.btn-tarjeta {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    min-height: 56px;
+    margin-top: auto;
+    padding: 0 20px;
+    border-radius: 28px;
+    background-color: var(--amarillo);
+    color: var(--azul-principal);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.btn-tarjeta:hover {
+    background-color: var(--amarillo-hover);
+}
+
+/* ==========================================
+   MÓDULOS OPERATIVOS (SEMANA 2 - RIU 4, 5, 6, 7)
+   ========================================== */
+
+.panel-formulario {
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 24px;
+}
+
+.grid-cliente {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+.grid-cliente .campo {
+    margin-bottom: 0;
+}
+
+.contenedor-tabla {
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    overflow-x: auto;
+}
+
+.contenedor-tabla.scroll-filas {
+    max-height: 490px;
+    overflow-y: auto;
+}
+
+.tabla-datos {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+.tabla-datos thead th {
+    background-color: var(--azul-principal);
+    color: var(--blanco);
+    text-align: left;
+    padding: 14px 16px;
+    font-weight: 700;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.tabla-datos tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--borde);
+    vertical-align: middle;
+}
+
+.tabla-datos tbody tr:hover {
+    background-color: #f3f5f7;
+}
+
+.tabla-datos tbody tr.fila-seleccionada {
+    background-color: #eef4fb;
+}
+
+.label-check {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.label-check input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    accent-color: var(--azul-principal);
+    cursor: pointer;
+}
+
+.input-tabla {
+    width: 100%;
+    height: 40px;
+    padding: 8px 12px;
+    border: 1px solid #b8bdc3;
+    border-radius: 6px;
+    background-color: var(--blanco);
+    color: var(--azul-principal);
+    font-size: 15px;
+}
+
+.input-tabla:disabled {
+    background-color: #f3f5f7;
+    color: var(--azul-principal);
+    border-color: var(--borde);
+}
+
+/* BUSCADOR PREDICTIVO DE PRODUCTOS */
+
+.celda-buscador {
+    position: relative;
+}
+
+.lista-sugerencias {
+    position: absolute;
+    top: calc(100% - 4px);
+    left: 16px;
+    right: 16px;
+    background-color: var(--blanco);
+    border: 1px solid #b8bdc3;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
+    z-index: 25;
+    max-height: 190px;
+    overflow-y: auto;
+}
+
+.item-sugerencia {
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.item-sugerencia:hover {
+    background-color: #f3f5f7;
+}
+
+.item-sugerencia-vacio {
+    padding: 10px 14px;
+    color: var(--texto-secundario);
+    font-size: 14px;
+}
+
+/* BARRA INFERIOR DE ACCIONES Y TOTAL */
+
+.barra-inferior-pedido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.caja-total {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.valor-total {
+    min-width: 150px;
+    padding: 10px 18px;
+    background-color: #eef1f4;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    font-size: 16px;
+    color: var(--azul-principal);
+}
+
+.grupo-botones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 22px;
+}
+
+/* ETIQUETAS DE ESTADO PRODUCTO */
+
+.etiqueta-estado {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--blanco);
+}
+
+.estado-habilitado {
+    background-color: var(--verde-ok);
+}
+
+.estado-deshabilitado {
+    background-color: var(--rojo-error);
+}
+
+/* DATOS SOLO LECTURA (PROCESAMIENTO PASO 2) */
+
+.meta-pedido {
+    margin: -14px 0 22px;
+    color: var(--texto-secundario);
+    font-size: 15px;
+}
+
+.grid-lectura {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 16px;
+}
+
+.dato-lectura span {
+    display: block;
+    font-size: 13px;
+    color: var(--texto-secundario);
+    margin-bottom: 4px;
+}
+
+.dato-lectura strong {
+    font-size: 15px;
+    color: var(--azul-principal);
+}
+
+.grid-controles-proceso {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    max-width: 540px;
+    margin-top: 24px;
+}
+
+.grid-controles-proceso .campo {
+    margin-bottom: 0;
+}
+
+/* ==========================================
+   FOOT - PIE DE PÁGINA
+   RIU 1
+   ========================================== */
+
+.pie {
+    min-height: 96px;
+    padding: 20px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background-color: var(--azul-principal);
+    color: var(--blanco);
+}
+
+.pie nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.pie nav a:not(:last-child)::after {
+    content: "|";
+    color: #ffffff;
+    margin-left: 8px;
+}
+
+.pie a,
+.pie p {
+    margin: 0;
+    color: var(--blanco);
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.pie a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================
+   MODALES
+   ========================================== */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.modal-contenido {
+    width: 420px;
+    max-width: calc(100vw - 32px);
+    min-height: 170px;
+    padding: 32px;
+    background: #fafafa;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+}
+
+.icono-bloqueo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #f4f4f4;
+    color: #3f4e5f;
+    font-size: 22px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mensajeBloqueo {
+    margin: 0;
+    color: #3f4e5f;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.25;
+    text-align: center;
+}
+
+#mensajeBloqueo span {
+    display: block;
+    margin-top: 6px;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.titulo-modal {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--azul-principal);
+}
+
+.texto-modal {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.45;
+    color: var(--texto-secundario);
+}
+
+.acciones-modal {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+}
+
+.btn-modal-primario {
+    min-width: 120px;
+    min-height: 42px;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 22px;
+    background-color: var(--amarillo);
+    color: var(--azul-principal);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-modal-primario:hover {
+    background-color: var(--amarillo-hover);
+}
+
+/* ==========================================
+   DISEÑO RESPONSIVO
+   ========================================== */
+
+@media (max-width: 900px) {
+
+    .tarjetas {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .tarjeta {
+        min-height: 260px;
+    }
+
+    .sistema {
+        padding-top: 28px;
+    }
+
+    .bienvenida {
+        margin-bottom: 35px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .cabecera-superior {
+        flex-wrap: wrap;
+    }
+
+    .encabezado h1 {
+        font-size: 28px;
+    }
+
+    .pie {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .pie nav {
+        justify-content: center;
+    }
+
+    .login {
+        padding: 28px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .tarjeta {
+        padding: 28px;
+    }
+
+    .login h2 {
+        font-size: 23px;
+    }
+
+    #datosSesion {
+        flex-wrap: wrap;
+    }
+}
+
+/* ============================================================
+   CORRESPONDENCIA FIGMA — MOCKUPS DE ALTA FIDELIDAD
+   Vistas EXISTENTES: RIU 4, 5, 6 y 7. No se crean pantallas nuevas.
+   Referencia: frames 158:949, 158:840, 158:673, 158:790,
+   158:48, 158:581, 158:365 y 158:473.
+   Medidas de Figma basadas en lienzo de 1920×1080 px.
+   ============================================================ */
+
+:root { --texto-figma: #3f4e5f; }
+
+/* Figma utiliza Inter; se respeta el fallback de los navegadores. */
+body { font-family: Inter, Arial, sans-serif; }
+
+/* 1920×1080: el título de cada vista está a 64 px del BODY,
+   y las tablas principales empiezan 138 px después del HEAD. */
+.contenido:has(#vistaSistema:not([hidden])) { align-items: flex-start; padding-top: 0; }
+.sistema { padding-top: 64px; }
+.sistema h2 { font-size: 32px; font-weight: 700; line-height: 38px; margin-bottom: 36px; }
+.sistema .bienvenida { margin-bottom: 64px; }
+
+/* Tablas de listados: cabecera 64px y filas 76px en Figma. */
+.tabla-listado-contenedor { border-radius: 0; }
+.tabla-listado { table-layout: fixed; }
+.tabla-listado thead th { height: 64px; padding: 18px 24px; font-size: 16px; }
+.tabla-listado tbody td { height: 76px; padding: 16px 24px; font-size: 16px; }
+.tabla-listado tbody tr { background: #fff; }
+.tabla-listado .etiqueta-estado { border-radius: 5px; }
+.tabla-listado .label-check { gap: 16px; white-space: nowrap; }
+.tabla-listado .label-check input { width: 22px; height: 22px; }
+.tabla-listado:not(.tabla-productos) th:nth-child(1) { width: 17.857%; }
+.tabla-listado:not(.tabla-productos) th:nth-child(2) { width: 22.619%; }
+.tabla-listado:not(.tabla-productos) th:nth-child(3) { width: 26.190%; }
+.tabla-listado:not(.tabla-productos) th:nth-child(4) { width: 19.048%; }
+.tabla-listado:not(.tabla-productos) th:nth-child(5) { width: 14.286%; }
+.tabla-productos th:nth-child(1) { width: 17.857%; }
+.tabla-productos th:nth-child(2) { width: 35.714%; }
+.tabla-productos th:nth-child(3) { width: 13.095%; }
+.tabla-productos th:nth-child(4) { width: 15.476%; }
+.tabla-productos th:nth-child(5) { width: 17.857%; }
+
+/* Acciones x 180×56px separadas 16px como en Figma. */
+.grupo-botones { gap: 16px; margin-top: 36px; }
+.btn-accion { min-width: 180px; min-height: 56px; padding: 0 24px; border-radius: 28px; font-size: 16px; }
+
+/* RIU 4 — Ingresar/Editar pedido: cinco campos en una sola fila
+   (340/200/240/360/444px en diseño de 1680 px de ancho). */
+.modulo-pedidos .grid-cliente {
+    grid-template-columns: minmax(0,340fr) minmax(0,200fr) minmax(0,240fr) minmax(0,360fr) minmax(0,444fr);
+    gap: 24px;
+    margin-bottom: 28px;
+}
+.modulo-pedidos .grid-cliente .campo label { margin-bottom: 8px; }
+.modulo-pedidos .grid-cliente .campo input { height: 48px; min-width: 0; padding: 10px 14px; }
+.modulo-pedidos .cabecera-detalle-pedido { margin-bottom: 16px; gap: 16px; }
+.modulo-pedidos .cabecera-detalle-pedido .btn-accion { min-width: 180px; }
+
+/* Detalle: cabecera de 48px, filas 56px. */
+.tabla-detalle thead th { height: 48px; padding: 12px 24px; font-size: 16px; }
+.tabla-detalle tbody td { height: 56px; padding: 6px 18px; }
+.tabla-detalle th:nth-child(1) { width: 11.904%; }
+.tabla-detalle th:nth-child(2) { width: 48.810%; }
+.tabla-detalle th:nth-child(3) { width: 19.643%; }
+.tabla-detalle th:nth-child(4) { width: 19.643%; }
+.modulo-pedidos .total-y-envio { margin-top: 16px; }
+.modulo-pedidos .total-y-envio .btn-accion { min-width: 180px; }
+
+/* RIU 6 — Formularios de Productos: campos ocupan 100% del ancho,
+   UNO DEBAJO DEL OTRO como en el mockup (no en cinco columnas). */
+.formulario-producto { border: none; padding: 0; margin: 0; background: transparent; border-radius: 0; }
+.formulario-producto .campos-producto {
+    display: flex; flex-direction: column; background: #fff; border: 1px solid var(--borde);
+    border-radius: 6px; overflow: hidden;
+}
+.formulario-producto .campos-producto .campo {
+    margin: 0; padding: 8px 24px; min-height: 99px;
+    border-bottom: 1px solid var(--borde);
+}
+.formulario-producto .campos-producto .campo:last-child { border-bottom: 0; }
+.formulario-producto .campos-producto label { margin-bottom: 8px; font-size: 16px; }
+.formulario-producto .campos-producto input,
+.formulario-producto .campos-producto select { height: 56px; border-radius: 6px; background: #fafafa; }
+.formulario-producto .botones-form-producto { margin-top: 36px; }
+/* Editar Producto tiene campos compactos en el frame 158:48. */
+.formulario-producto.formulario-editar .campos-producto .campo { min-height: 59px; padding: 2px 24px; display: grid; grid-template-columns: 190px 1fr; align-items: center; gap: 12px; }
+.formulario-producto.formulario-editar .campos-producto label { margin: 0; }
+.formulario-producto.formulario-editar .campos-producto input,
+.formulario-producto.formulario-editar .campos-producto select { height: 48px; }
+
+/* RIU 7 — Ficha de lectura y dos selectores del Paso 2. */
+.grid-lectura { grid-template-columns: 290fr 190fr 230fr 335fr 503fr; gap: 24px; }
+.grid-lectura.panel-formulario { min-height: 94px; padding: 18px; }
+.grid-controles-proceso { grid-template-columns: 360px 360px; max-width: none; gap: 24px; margin-top: 24px; }
+.total-procesamiento { margin-top: 0; padding: 12px 24px; background: #f2f4f6; }
+.acciones-procesamiento { margin-top: 24px; }
+
+@media (max-width: 1150px) {
+  .modulo-pedidos .grid-cliente { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .grid-lectura { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .grid-controles-proceso { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .tabla-listado { min-width: 850px; }
+  .tabla-detalle { min-width: 700px; }
+}
+@media (max-width: 700px) {
+  .modulo-pedidos .grid-cliente,
+  .grid-lectura, .grid-controles-proceso { grid-template-columns: 1fr; }
+  .formulario-producto.formulario-editar .campos-producto .campo { display: block; padding: 12px 18px; }
+  .formulario-producto.formulario-editar .campos-producto label { margin-bottom: 8px; }
+  .sistema { padding-top: 32px; }
+  .btn-accion { min-width: 136px; }
+}
+
+/* ============================================================
+   AJUSTES FINALES - medidas contrastadas directamente con Figma
+   (frames 158:949, 158:840, 158:673, 158:790, 158:48,
+   158:581, 158:365). No se agregan vistas nuevas.
+   ============================================================ */
+
+/* Contenedor de 1680 px con 120 px de margen en el mockup 1920 px. */
+.contenido { padding-left: max(24px, calc((100vw - 1680px) / 2)); padding-right: max(24px, calc((100vw - 1680px) / 2)); }
+.encabezado { padding-left: max(24px, calc((100vw - 1680px) / 2)); padding-right: max(24px, calc((100vw - 1680px) / 2)); }
+.pie { padding-left: max(24px, calc((100vw - 1680px) / 2)); padding-right: max(24px, calc((100vw - 1680px) / 2)); }
+.encabezado h1 { font-size: 32px; }
+.menu { gap: 16px; }
+.menu a { padding: 16px 20px; border-radius: 6px; }
+.btn-salir { border-radius: 8px; padding: 15px 24px; }
+
+/* RIU 6: Productos SI tiene título en Figma, a 64 px del inicio del BODY. */
+.titulo-productos { margin-bottom: 36px !important; }
+.tabla-listado-contenedor { border: 1px solid #c8c8c8; }
+.tabla-listado tbody tr:hover { background: #f7f9fa; }
+.tabla-listado .etiqueta-estado { border-radius: 6px; }
+
+/* RIU 6.1: pantalla Ingresar Producto: panel gris #e9ecef,
+   cinco filas de 99 px, campos de 56 px y acciones 180x56. */
+.formulario-producto.formulario-ingresar .campos-producto {
+  background: #e9ecef; border: 1px solid #c8c8c8; border-radius: 8px;
+}
+.formulario-producto.formulario-ingresar .campos-producto .campo {
+  min-height: 99px; padding: 8px 24px; border-bottom-color: #c8c8c8;
+}
+.formulario-producto.formulario-ingresar .campos-producto label {
+  font-weight: 600; margin-bottom: 8px;
+}
+.formulario-producto.formulario-ingresar .campos-producto input,
+.formulario-producto.formulario-ingresar .campos-producto select {
+  background: #fafafa; border-color: #c8c8c8; border-radius: 8px;
+}
+.formulario-producto .btn-accion { border-radius: 8px; }
+.formulario-producto.formulario-ingresar .botones-form-producto { margin-top: 36px; }
+
+/* RIU 6.2: pantalla Editar Producto distinta de Ingresar:
+   tarjeta gris, etiquetas de 220px, filas compactas y los valores
+   en línea. Los inputs siguen siendo editables por la exigencia CRUD. */
+.formulario-producto.formulario-editar .campos-producto {
+  background: #e9ecef; border: 1px solid #e9ecef; border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(16,24,40,0.08);
+}
+.formulario-producto.formulario-editar .campos-producto .campo {
+  min-height: 59px; padding: 5px 24px;
+  grid-template-columns: 220px minmax(0,1fr); gap: 24px;
+  border-color: #dce0e4;
+}
+.formulario-producto.formulario-editar .campos-producto label {
+  font-weight: 600; font-size: 16px;
+}
+.formulario-producto.formulario-editar .campos-producto input:not([readonly]) {
+  background: transparent; border: 1px solid transparent; border-radius: 4px;
+  height: 42px; padding-left: 0;
+}
+.formulario-producto.formulario-editar .campos-producto input[readonly] {
+  background: transparent; border: 0; height: 42px; padding-left: 0;
+}
+.formulario-producto.formulario-editar .campos-producto input:focus,
+.formulario-producto.formulario-editar .campos-producto input:hover:not([readonly]) {
+  border-color: #b4bcc5; background: #fafafa; padding-left: 12px;
+}
+.formulario-producto.formulario-editar .campos-producto select {
+  height: 48px; background: #fafafa; border: 1px solid #e9ecef;
+}
+.formulario-producto.formulario-editar .botones-form-producto { margin-top: 36px; }
+
+/* RIU 4: el mockup de Ingresar Pedido tiene título a y=36,
+   no a y=64 como el listado de pedidos. */
+.sistema:has(.modulo-pedidos) { padding-top: 36px; }
+.modulo-pedidos h2 { margin-bottom: 28px; }
+.modulo-pedidos .subtitulo-seccion { font-size: 24px; line-height: 31px; margin-bottom: 20px; }
+.modulo-pedidos .grid-cliente { margin-bottom: 28px; }
+.modulo-pedidos .grid-cliente .campo label { font-size: 18px; font-weight: 500; }
+.modulo-pedidos .grid-cliente .campo input { background: #fafafa; border-color: #c8c8c8; }
+.modulo-pedidos .cabecera-detalle-pedido { margin-bottom: 16px; }
+.modulo-pedidos .cabecera-detalle-pedido .btn-accion { border-radius: 8px; }
+.modulo-pedidos .tabla-detalle thead th { background: #3f4e5f; }
+.modulo-pedidos .contenedor-tabla { border-radius: 0; border-color: #c8c8c8; }
+.modulo-pedidos .total-y-envio .btn-accion { border-radius: 8px; }
+
+/* RIU 7: Paso 2 empieza a los 36 px, secciones a y=128,
+   293 y 640 dentro del BODY, para dejar visible el pie. */
+.sistema:has(.vista-proceso-paso2) { padding-top: 36px; }
+.vista-proceso-paso2 > h2 { margin-bottom: 8px; }
+.vista-proceso-paso2 .meta-pedido { margin: 0 0 24px; font-size: 18px; color: #3f4e5f; }
+.vista-proceso-paso2 > .subtitulo-seccion { font-size: 24px; line-height: 31px; margin: 0 0 16px; }
+.vista-proceso-paso2 .grid-lectura.panel-formulario {
+  padding: 18px; border-radius: 0; background: #e9ecef; border-color: #c8c8c8;
+  min-height: 94px; margin: 0 0 24px;
+}
+.vista-proceso-paso2 .dato-lectura span { font-size: 16px; margin-bottom: 10px; }
+.vista-proceso-paso2 .dato-lectura strong { font-size: 16px; font-weight: 400; }
+.vista-proceso-paso2 .tabla-detalle tbody td { height: 44px; padding-top: 6px; padding-bottom: 6px; }
+.vista-proceso-paso2 .tabla-detalle { border-radius: 0; }
+.vista-proceso-paso2 .total-procesamiento { height: 56px; margin: 0 0 24px; padding: 0 24px; }
+.vista-proceso-paso2 .grid-controles-proceso { margin-top: 0; gap: 24px; }
+.vista-proceso-paso2 .grid-controles-proceso .campo label { margin-bottom: 8px; }
+.vista-proceso-paso2 .grid-controles-proceso .campo select { height: 48px; }
+.vista-proceso-paso2 .acciones-procesamiento { margin-top: 24px; }
+.vista-proceso-paso2 .acciones-procesamiento .btn-accion { border-radius: 8px; }
+
+@media(max-width:1150px) {
+ .modulo-pedidos .grid-cliente { grid-template-columns: repeat(2,minmax(0,1fr)); }
+ .vista-proceso-paso2 .grid-lectura { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:700px) {
+ .formulario-producto.formulario-editar .campos-producto .campo {display:block; padding:12px 18px;}
+ .modulo-pedidos .grid-cliente, .vista-proceso-paso2 .grid-lectura {grid-template-columns:1fr;}
+ .sistema:has(.modulo-pedidos), .sistema:has(.vista-proceso-paso2) {padding-top:32px;}
+}
+/* Ajustes geométricos verificados a 1920×1080 (fecha: 27/11/2026) */
+.formulario-producto.formulario-ingresar .campos-producto .campo {
+  height: 99px; min-height: 99px; flex: 0 0 99px;
+}
+.formulario-producto.formulario-editar .campos-producto .campo:last-child {
+  min-height: 86px;
+}
+.modulo-pedidos .cabecera-detalle-pedido .btn-accion {
+  min-height: 48px; height: 48px;
+}
+.modulo-pedidos .total-y-envio { margin-top: 24px; }
+.contenido:has(#vistaSistema:not([hidden])) { padding-bottom: 32px; }
+.contenido:has(.vista-proceso-paso2) { padding-bottom: 0; }
+.sistema:has(.vista-proceso-paso2) { padding-bottom: 0; }
+
+.contenido:has(#vistaSistema:not([hidden])):has(.vista-proceso-paso2) { padding-bottom: 0; }
+
+/* ==============================================================
+   AUDITORÍA EXHAUSTIVA DE FRAMES — Figma 158:949, 158:840, 158:673,
+   158:790, 158:48, 158:365 y modales 177:1903, 177:2407, 158:219.
+   Estilos acotados a las pantallas originales; sin nuevas vistas.
+   ============================================================== */
+/* En listas, los botones de Editar son azul grisáceo oscuro, con
+   esquinas de 8 px, no amarillo/gris ni píldoras. */
+.tabla-listado-contenedor + .grupo-botones .btn-accion {
+  border-radius: 8px;
+}
+.btn-editar-listado { background: #3f4e5f; color: #fafafa; }
+.btn-editar-listado:hover { background: #526477; }
+/* Figma define verde turquesa para productos habilitados. */
+.tabla-productos .etiqueta-estado.estado-habilitado {
+  background: #2a9d8f; color: #fff;
+}
+.tabla-productos .etiqueta-estado.estado-deshabilitado {
+  background: #e63946; color: #fff;
+}
+/* Fondo del detalle de pedido: azul solo para Cantidad y Producto.
+   Valor Unitario y Valor de Venta mantienen cabecera gris clara. */
+.modulo-pedidos .tabla-detalle thead th:nth-child(n+3) {
+  background: #e9ecef; color: #3f4e5f;
+}
+.modulo-pedidos .tabla-detalle tbody tr,
+.modulo-pedidos .tabla-detalle tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+.modulo-pedidos .tabla-detalle .input-unit,
+.modulo-pedidos .tabla-detalle .input-venta {
+  background: #fafafa; border: 1px solid #c8c8c8;
+  color: #3f4e5f; opacity: 1; -webkit-text-fill-color: #3f4e5f;
+}
+.modulo-pedidos .tabla-detalle tbody td { height: 56px; }
+/* Paso 2: cabecera gris, sin caja azul ni esquinas redondeadas. */
+.vista-proceso-paso2 .tabla-detalle thead th {
+  background: #e9ecef; color: #3f4e5f; font-weight: 600;
+}
+.vista-proceso-paso2 .contenedor-tabla { border-radius: 0; border: 1px solid #c8c8c8; }
+.vista-proceso-paso2 .tabla-detalle tbody td { background: #fafafa; }
+.vista-proceso-paso2 .total-procesamiento { background: #e9ecef; }
+/* En Figma la opción Volver en Procesamiento Paso 2 es gris claro. */
+.vista-proceso-paso2 .acciones-procesamiento .btn-accion { height: 56px; }
+/* Modales de confirmación de Pedidos/Productos: tarjeta pequeña,
+   texto central y dos botones. No se inventa cabecera ni icono. */
+#modalSistema .modal-contenido {
+  width: 560px; min-height: 188px; padding: 30px 32px;
+  gap: 20px; background: #fff; border-radius: 12px;
+}
+#modalSistema .titulo-modal, #modalSistema #iconoModalSistema {display:none !important;}
+#modalSistema .texto-modal {
+  font-size: 18px; line-height: 1.35; color: #3f4e5f;
+  font-weight: 600; max-width: 480px;
+}
+#modalSistema.modal-error .texto-modal {color:#e63946; font-weight:700;}
+#modalSistema.modal-confirmacion .texto-modal {color:#3f4e5f;}
+#modalSistema .acciones-modal {gap:16px; margin: 0; width: 100%; justify-content:center;}
+#modalSistema .acciones-modal .btn-accion {
+  width:180px; min-width:180px; min-height:56px; height:56px;
+  border-radius:8px; font-size:15px;
+}
+#modalSistema.modal-error .acciones-modal .btn-accion {width:100%;}
+#modalSistema.modal-error .acciones-modal {width:100%;}
+#modalSistema .acciones-modal #btnModalConfirmar {background:#e63946;}
+#modalBloqueo .modal-contenido {width:400px; min-height:162px; padding:24px;}
+@media(max-width:700px){
+ #modalSistema .modal-contenido{width:min(560px, calc(100vw - 32px));padding:20px;}
+ #modalSistema .acciones-modal .btn-accion{width:auto;flex:1;min-width:90px;}
+}
+
+/* Estados existentes de Figma: modales diferenciados y campos de error. */
+#modalSistema.modal-error .texto-modal::before {
+  content: "⚠ "; font-size: 17px; color: #e63946;
+}
+#modalSistema.modal-seleccion .modal-contenido {
+  width:560px; min-height:188px; padding:32px;
+}
+#modalSistema.modal-seleccion .texto-modal {max-width:100%;}
+#modalSistema.modal-restriccion .texto-modal {
+  color: #3f4e5f; font-weight:600; font-size:18px;
+}
+#modalSistema.modal-restriccion .texto-modal::before {content:none;}
+#modalSistema.modal-restriccion .acciones-modal {
+  justify-content: flex-end; padding-top:12px; border-top:1px solid #e9ecef;
+}
+#modalSistema.modal-restriccion .acciones-modal .btn-accion {
+  width:160px; flex:0 0 160px;
+}
+#modalSistema.modal-producto-volver .acciones-modal,
+#modalSistema.modal-producto-borrar .acciones-modal {
+  justify-content:flex-end; border-top:1px solid #e9ecef; padding-top:12px;
+}
+#modalSistema.modal-producto-volver #btnModalConfirmar,
+#modalSistema.modal-producto-borrar #btnModalConfirmar,
+#modalSistema.modal-producto-eliminar #btnModalConfirmar {
+  background: #ffd43b; color:#3f4e5f;
+}
+#modalSistema.modal-producto-eliminar .modal-contenido {
+  width:400px; min-height:220px; align-items:stretch; padding:24px 30px;
+}
+#modalSistema.modal-producto-eliminar .texto-modal {text-align:left; font-size:18px;}
+#modalSistema.modal-producto-eliminar .acciones-modal {justify-content:flex-end; align-self:flex-end;}
+#modalSistema.modal-producto-eliminar .acciones-modal .btn-accion {
+  min-width:120px; width:120px; min-height:48px; height:48px;
+}
+#modalSistema.modal-pedido-eliminar .modal-contenido {width:520px;}
+#modalSistema.modal-producto-volver .modal-contenido,
+#modalSistema.modal-producto-borrar .modal-contenido {width:560px;}
+/* El mockup de error 158:219 envuelve la vista de Pedidos en un panel. */
+.modulo-pedidos.estado-error {
+  border:1px solid #c8c8c8; border-radius:8px;
+  background:#fafafa; padding:24px 32px 32px;
+}
+/* Sugerencias visibles al escribir tres letras, sin recortarse por scroll. */
+@media(min-width:1151px) {
+  .modulo-pedidos .contenedor-tabla:not(.scroll-filas) {
+    overflow: visible;
+  }
+}
+.modulo-pedidos .tabla-detalle .celda-buscador {position:relative;z-index:5;}
+.modulo-pedidos .tabla-detalle .lista-sugerencias {z-index:30; box-shadow:0 6px 18px rgba(0,0,0,.12);}
+/* El frame Editar Producto usa título oscuro, a diferencia de otros títulos. */
+.sistema:has(.formulario-editar) h2 {color:#202020;}
+@media(max-width:700px){
+ .modulo-pedidos.estado-error{padding:16px 12px;}
+ #modalSistema.modal-producto-eliminar .modal-contenido{width:min(400px,calc(100vw - 32px));}
+}
+/* Mockup 269:274: tras superar diez filas se conserva el alto
+   visual de la tabla de cinco filas y aparece scroll interno. */
+.modulo-pedidos .contenedor-tabla.scroll-filas {
+  height: 328px;
+  max-height: 328px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+@media(max-width:1150px){
+ .modulo-pedidos .contenedor-tabla.scroll-filas {overflow-x:auto;}
+}
+
+/* ------------------------------------------------------------
+   Ajustes finales contrastados con las imágenes PNG recibidas
+   el 27/11/2026. Se priorizan los estados que SÍ están diseñados.
+   ------------------------------------------------------------ */
+
+/* El panel de la lista es blanco grisáceo y las acciones son
+   rectangulares en vez de píldoras; Figma: Productos y Pedidos. */
+.tabla-listado tbody tr { background: #fafafa; }
+.tabla-listado tbody tr:nth-child(even) { background: #fafafa; }
+.tabla-listado-contenedor + .grupo-botones .btn-accion {
+  border-radius: 8px; min-width: 180px; min-height: 56px;
+}
+
+/* Diferencia real entre dos mockups distintos:
+   - Borrar datos EN Ingresar Producto: Confirmar amarillo.
+   - Borrar datos EN Editar Producto: Confirmar rojo.
+   Ninguna de estas variantes muestra línea divisoria sobre botones. */
+#modalSistema.modal-producto-borrar-nuevo .acciones-modal,
+#modalSistema.modal-producto-borrar-editar .acciones-modal,
+#modalSistema.modal-producto-volver .acciones-modal {
+  justify-content: center; border: 0; padding-top: 0;
+}
+#modalSistema.modal-producto-borrar-nuevo #btnModalConfirmar,
+#modalSistema.modal-producto-volver #btnModalConfirmar {background:#ffd43b; color:#3f4e5f;}
+#modalSistema.modal-producto-borrar-editar #btnModalConfirmar {background:#e63946; color:#fff;}
+#modalSistema.modal-producto-borrar-nuevo .modal-contenido,
+#modalSistema.modal-producto-borrar-editar .modal-contenido,
+#modalSistema.modal-producto-volver .modal-contenido {width: 560px; min-height: 188px;}
+
+/* Los modales de confirmación tienen botones más compactos y
+   el texto está centrado tal como se exportó en los PNG. */
+#modalSistema.modal-pedido-borrar .modal-contenido,
+#modalSistema.modal-pedido-eliminar .modal-contenido {width:560px; min-height:188px;}
+#modalSistema.modal-pedido-borrar .acciones-modal .btn-accion,
+#modalSistema.modal-pedido-eliminar .acciones-modal .btn-accion {
+  width:180px; min-width:180px; border-radius:8px;
+}
+
+/* Cuenta bloqueada sin botón, con el login visible detrás. */
+#modalBloqueo {background:rgba(0,0,0,.4);}
+#modalBloqueo .modal-contenido {width:400px;min-height:162px;box-shadow:0 12px 30px rgba(0,0,0,.18);}
+
+@media(max-width:700px){
+ #modalSistema.modal-pedido-borrar .modal-contenido,
+ #modalSistema.modal-pedido-eliminar .modal-contenido,
+ #modalSistema.modal-producto-borrar-nuevo .modal-contenido,
+ #modalSistema.modal-producto-borrar-editar .modal-contenido,
+ #modalSistema.modal-producto-volver .modal-contenido {width:min(560px,calc(100vw - 32px));}
+ #modalSistema.modal-pedido-borrar .acciones-modal .btn-accion,
+ #modalSistema.modal-pedido-eliminar .acciones-modal .btn-accion {min-width:100px;width:auto;}
+}
+
+/* CORRECCIÓN 27-11: prioridad visual del buscador del RIU 4.
+   Cada fila posterior no puede cubrir la sugerencia de la fila activa. */
+.modulo-pedidos .tabla-detalle { position: relative; }
+.modulo-pedidos .tabla-detalle tbody tr { position: relative; z-index: 0; }
+.modulo-pedidos .tabla-detalle tbody tr:focus-within { z-index: 60; }
+.modulo-pedidos .tabla-detalle tbody tr:has(.lista-sugerencias:not([hidden])) { z-index: 61; }
+.modulo-pedidos .tabla-detalle .celda-buscador:focus-within { z-index: 65; }
+.modulo-pedidos .tabla-detalle .lista-sugerencias { z-index: 70; top: 100%; }
+.modulo-pedidos .contenedor-tabla:not(.scroll-filas) { overflow: visible; }
+
+
+/* AJUSTE 27-11 — Composición responsive proporcional al frame Figma 1920.
+   Figma utiliza 120 px de margen a 1920 (6,25%). Mantener 24 px
+   en pantallas de 1440 desplazaba la tabla respecto del mockup. */
+@media (min-width: 701px) {
+  .contenido,
+  .encabezado {
+    padding-left: clamp(24px, 6.25vw, 120px);
+    padding-right: clamp(24px, 6.25vw, 120px);
+  }
+}
+/* En el frame de 1920 los productos ocupan seis filas de 76 px.
+   Mantener la tabla sin un alto fijo permite conservar el diseño al
+   agregar o eliminar productos por las acciones de la interfaz. */
+.tabla-productos tbody td {height: 76px;}
+
+
+/* ================================================================
+   REVISION COMPARATIVA DE PNG DE EVALUACION 2 — 27/11/2026
+   Ajuste puntual: en Procesamiento Paso 2 el importe total es
+   texto a la derecha y NO una caja de formulario (frame de Figma).
+   ================================================================ */
+.vista-proceso-paso2 .total-procesamiento .valor-total {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    width: auto;
+    min-width: 0;
+    height: auto;
+    padding: 0;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: right;
+    color: #3f4e5f;
+}
+/* La cabecera de Productos replica las cinco columnas del mockup. */
+.tabla-productos .etiqueta-estado { font-weight: 500; }
+
+/* Revisión con PNG originales: dimensiones de confirmación y bloqueo. */
+#modalSistema.modal-pedido-borrar .acciones-modal {
+  justify-content: flex-end;
+}
+#modalSistema.modal-pedido-borrar .acciones-modal .btn-accion {
+  width: 120px; min-width: 120px; height: 48px; min-height: 48px;
+}
+#modalSistema.modal-pedido-eliminar .texto-modal {
+  max-width: 370px;
+  margin-inline: auto;
+  text-align: center;
+}
+#mensajeBloqueo:focus { outline: none; }
+@media (min-width: 701px) {
+  body:has(#modalBloqueo:not([hidden])) .login {
+    transform: translateY(48px);
+  }
+}
+
+/* ================================================================
+   ENTREGA CON INVENTARIO RESTAURADO — AJUSTE FIGMA PRODUCTOS
+   Basado en frame Productos 158:673 (1920 x 1080).
+   No agrega pantallas ni modifica las acciones CRUD.
+   ================================================================ */
+/* Figma: margen lateral 120px a 1920; ajuste proporcional a 1440. */
+@media (min-width: 701px) {
+    .pie {padding-left:clamp(24px,6.25vw,120px);padding-right:clamp(24px,6.25vw,120px);}
+}
+/* Figma: listados sin bordes redondeados, cabecera 64px, filas 76px. */
+.tabla-productos { border-collapse:collapse; }
+.tabla-productos thead th { height:64px; }
+.tabla-productos tbody td { height:76px; }
+/* Figma: editar es azul grisáceo, nunca gris claro. */
+.tabla-listado-contenedor + .grupo-botones .btn-editar-listado {
+    background:#3f4e5f; color:#fff; border-radius:8px;
+}
+.tabla-listado-contenedor + .grupo-botones .btn-editar-listado:hover {
+    background:#526477;
+}
+/* Etiquetas de estado originales del mockup Productos. */
+.tabla-productos .etiqueta-estado.estado-habilitado {
+    background:#2a9d8f;color:#fff;
+}
+.tabla-productos .etiqueta-estado.estado-deshabilitado {
+    background:#e63946;color:#fff;
+}

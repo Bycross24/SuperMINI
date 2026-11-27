@@ -1,19 +1,24 @@
-# SuperMINI — Sistema de Gestión de Pedidos
+# SuperMINI — Evaluación 3 | Avance 2
 
-## 1. Descripción
+Prototipo académico de gestión de pedidos de una cadena de supermercados, desarrollado para **Diseño de Interfaces de Usuario** de Ingeniería Informática Empresarial, Universidad de Talca. Implementa los requerimientos de interfaz de usuario (RIU) y toma como referencia los mockups de la Evaluación 2.
 
-SuperMINI es un sistema web de gestión de pedidos para una cadena de supermercados, desarrollado en la asignatura **Diseño de Interfaces de Usuario**, de Ingeniería Informática Empresarial de la Universidad de Talca.
+## 1. Ejecutar el proyecto
 
-El proyecto implementa las interfaces diseñadas previamente en Figma, de acuerdo con los Requerimientos de Interfaz de Usuario (RIU).
+1. Descarga este repositorio mediante **Code → Download ZIP** o clónalo.
+2. Descomprime el ZIP y abre **la carpeta completa** en IntelliJ IDEA con **File → Open**.
+3. Abre `index.html` en Chrome (desde IntelliJ o directamente en el navegador).
+4. Inicia sesión con alguna de las cuentas de demostración.
 
-## 2. Tecnologías utilizadas
+No requiere instalación de bibliotecas, servidor de aplicación ni base de datos externa. Utiliza JavaScript y `localStorage` para almacenar los productos y pedidos en **ese navegador**. La tipografía Inter puede cargarse desde Google Fonts si hay conexión; existe un tipo de letra de respaldo.
 
-- **HTML5:** estructura de las interfaces.
-- **CSS3:** estilos y diseño visual.
-- **JavaScript:** validaciones, navegación y control de perfiles.
-- **Figma:** referencia de wireframes, mockups y prototipos.
+### Credenciales de demostración
 
-## 3. Estructura del proyecto
+| Perfil | Usuario | Contraseña |
+|---|---|---|
+| Administrador | `admin` | `AdminDemo123` |
+| Usuario | `user` | `UserDemo123` |
+
+## 2. Archivos del proyecto
 
 ```text
 SuperMINI/
@@ -21,87 +26,61 @@ SuperMINI/
 ├── css/
 │   └── estilos.css
 ├── js/
+│   ├── datos.js
+│   ├── pedidos.js
+│   ├── admin.js
 │   └── login.js
-└── README.md
+├── README.md
+└── PROMPTS_RECETA.md
 ```
 
-## 4. Instrucciones de ejecución
+La aplicación usa **un único `index.html`**; sus pantallas se presentan por navegación interna (`#home`, `#pedidos`, `#pedidos-ingresados`, `#productos`, `#procesamiento`). No hay páginas HTML separadas para cada vista. Los documentos de revisión que acompañan algunas copias de trabajo son materiales auxiliares, no requisitos para ejecutar el sitio.
 
-**Requisitos:** navegador web actualizado, preferentemente Google Chrome. No se requiere base de datos ni instalación de dependencias.
+## 3. Funcionalidades por perfil
 
-1. Clonar el repositorio mediante:
+**Compartidas (RIU 1, 2, 3, 8, 9 y 10):** encabezado y pie comunes; Login con errores y bloqueo por intentos; dashboards y navegación diferenciada; cierre de sesión; restricción de vistas según perfil.
 
-   `git clone https://github.com/Bycross24/SuperMINI.git`
+**Perfil User:**
+- **RIU 4 — Pedidos:** formulario del cliente, RUN, contacto, buscador de productos habilitados desde tres caracteres, cantidades, valores y total CLP, filas dinámicas y confirmación al borrar.
+- **RIU 5 — Pedido Ingresado:** listado de pedidos, selección única, edición y eliminación con confirmación.
 
-   Alternativamente, descargar el proyecto desde **Code → Download ZIP** y descomprimirlo.
+**Perfil Admin:**
+- **RIU 6 — Productos:** listado, ingreso, edición y eliminación, con restricciones de stock y productos vinculados a pedidos.
+- **RIU 7 — Procesamiento:** selección de pedido, revisión en dos pasos, datos en lectura, V.B. y destino Enviar con habilitación condicionada.
 
-2. Abrir la carpeta `SuperMINI` en IntelliJ IDEA u otro editor compatible.
+La implementación reproduce las vistas y estados disponibles en los mockups; ciertas alertas de restricciones son adaptaciones funcionales de los RIU y no necesariamente tienen un mockup propio.
 
-3. Ejecutar `index.html` en el navegador. También puede abrirse directamente desde la carpeta del proyecto.
+## 4. Datos de ejemplo y reinicio
 
-4. Ingresar con cualquiera de las credenciales de prueba indicadas a continuación.
+Esta entrega utiliza claves de demostración nuevas (v6) para que puedas recuperar los productos eliminados en versiones anteriores **sin borrar el almacenamiento v5**. En una primera ejecución, el navegador carga los **seis productos** y **seis pedidos** iniciales de demostración, siguiendo el material de referencia. Después, los cambios permanecen guardados en el navegador.
 
-## 5. Credenciales de prueba
+Claves de `localStorage` de esta versión:
+- `supermini_productos_figma_v6`
+- `supermini_pedidos_figma_v6`
 
-| Perfil | Usuario | Contraseña | Nombre mostrado |
-|---|---|---|---|
-| Administrador | `admin` | `AdminDemo123` | JuanPerez |
-| Usuario | `user` | `UserDemo123` | MariaPerez |
+Si usas esta entrega por primera vez desde la misma dirección de localhost, los seis productos (incluidos Azúcar y Café deshabilitados) aparecerán automáticamente. Al eliminar un producto de nuevo, el cambio persistirá en v6. Para **restablecer los datos iniciales**, abre Chrome → Herramientas para desarrolladores → **Application → Local Storage**, selecciona la dirección desde la que abres SuperMINI y elimina *solo* esas dos claves. Después recarga. **Esto elimina los pedidos y productos que hayas cambiado o creado en esa versión**; no lo hagas si necesitas conservarlos. Los bloqueos por intentos usan otras claves (`intentos_admin` y `intentos_user`).
 
-Las credenciales corresponden exclusivamente a cuentas ficticias para demostrar el funcionamiento de las interfaces.
+## 5. Pruebas manuales sugeridas
 
-## 6. Funcionalidades implementadas — Semana 1
+1. Inicia sesión como `user`; busca `lec` en Pedidos y selecciona **Leche entera 1 L**. Comprueba que aparecen su precio y los cálculos en CLP.
+2. Intenta enviar un pedido con campos incompletos y comprueba los mensajes de validación.
+3. Agrega más de diez filas y revisa el desplazamiento de la tabla. Comprueba las restricciones al eliminar filas con productos.
+4. En **Pedido Ingresado**, comprueba la selección, edición y confirmación de eliminación.
+5. Inicia sesión como `admin`; comprueba ingresar, editar y eliminar productos, y la restricción sobre productos asociados a pedidos.
+6. En **Procesamiento de Pedido**, selecciona un pedido, entra al Paso 2 y comprueba la habilitación de V.B., Enviar y Aceptar.
+7. Intenta abrir la ruta de Admin desde User y viceversa; verifica que no acceda a funciones de otro perfil.
 
-**RIU 1 — Estructura general**
+## 6. Registro de prompts y evidencia
 
-- Encabezado (HEAD), contenido (BODY) y pie de página (FOOT).
-- Menús y enlaces adaptados al perfil.
+Los prompts de la semana 1 y las propuestas del avance 2 se organizan en [`PROMPTS_RECETA.md`](PROMPTS_RECETA.md). Los prompts 01–05 fueron aportados por el equipo; los prompts 06–09 son **redacciones propuestas a partir del código y los requerimientos**, y deben identificarse como tales hasta que exista evidencia de su uso real.
 
-**RIU 2 — Login**
+Las capturas comparativas, pruebas ejecutadas y matriz de trazabilidad pueden incorporarse a la documentación de la Evaluación 3 conforme a la pauta de la asignatura.
 
-- Validación de campos obligatorios.
-- Mensaje para usuario inexistente.
-- Validación de contraseña.
-- Bloqueo tras tres intentos fallidos de contraseña en una cuenta existente.
-- Modal de cuenta bloqueada.
-- Inicio y cierre de sesión.
+## 7. Limitaciones
 
-**RIU 3, 8, 9 y 10 — Perfiles**
+Es un prototipo **sin backend, cuentas reales ni controles de seguridad de producción**. Los datos, credenciales y sesiones son demostrativos: no introducir información real o sensible. La fidelidad visual depende de la resolución y tipografías; no se afirma equivalencia exacta píxel a píxel para todos los estados. No se deben confundir estados implementados por reglas del RIU con mockups originales inexistentes.
 
-- Dashboard exclusivo para administrador y usuario.
-- Menú administrador: Home, Productos y Procesamiento de Pedido.
-- Menú usuario: Home, Pedidos y Pedido Ingresado.
-- Restricción de navegación hacia módulos de otros perfiles.
-- Nombre del usuario y botón Cerrar sesión en el encabezado.
 
-## 7. Pruebas de funcionamiento
+## Ajuste solicitado por el profesor
 
-**Inicio de sesión correcto:** ingresar con las credenciales de `admin` o `user` y comprobar que se carga el dashboard correspondiente.
-
-**Usuario inexistente:** ingresar un usuario no registrado y una contraseña cualquiera. El sistema debe mostrar el mensaje de usuario no encontrado.
-
-**Contraseña incorrecta:** ingresar un usuario existente con una contraseña inválida. El sistema informa los intentos restantes.
-
-**Bloqueo de cuenta:** ingresar tres contraseñas incorrectas consecutivas utilizando la misma cuenta. Debe mostrarse el modal «Cuenta bloqueada — Ha superado los 3 intentos».
-
-**Restricciones de perfiles:** iniciar sesión como `user` e intentar acceder a `#productos`. El sistema debe regresar a Home. Repetir con `admin` intentando acceder a `#pedidos`.
-
-**Cierre de sesión:** presionar «Cerrar sesión» y verificar el retorno a la pantalla de Login.
-
-### Restablecimiento de cuentas de prueba
-
-Los intentos fallidos se almacenan en `localStorage`, por lo que el bloqueo persiste al recargar la página.
-
-Para repetir las pruebas, abrir las herramientas de desarrollador del navegador y eliminar las claves `intentos_admin` e `intentos_user` del almacenamiento local correspondiente al proyecto.
-
-## 8. Estado del desarrollo
-
-**Semana 1:** implementación del Login, dashboards y navegación por perfiles.
-
-**Pendiente:** desarrollo funcional de Pedidos, Pedidos Ingresados, Productos y Procesamiento de Pedido.
-
-La autenticación y el control de acceso actuales son demostrativos y se ejecutan mediante JavaScript del lado del cliente. No constituyen un mecanismo de seguridad de producción.
-
-## 9. Repositorio
-
-https://github.com/Bycross24/SuperMINI
+En el encabezado y en los dashboards se muestran los nombres **Juan** (perfil admin) y **Maria** (perfil user). Las credenciales de inicio de sesión `admin` y `user` no cambian. Este ajuste sustituye los nombres de demostración JuanPerez y MariaPerez que aparecen en los mockups de Evaluación 2.
